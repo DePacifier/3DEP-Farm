@@ -9,6 +9,10 @@
         "polygon": "POLYGON((0 0, 5000 10000, 10000 0, 0 0))",
         "type": "filters.crop"
     },
+    "sampling_filter": {
+        "type": "filters.sample",
+        "radius": 1
+    },
     "range_filter": {
         "limits": "Classification![7:7]",
         "type": "filters.range",
