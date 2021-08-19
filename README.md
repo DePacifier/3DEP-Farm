@@ -1,5 +1,6 @@
-# 3DEP-Farm :octocat:
-> Python package for getting 3DEP's geographic elevation data and more
+:octocat:
+# 3DEP-Farm
+> A Python package for retrieving 3DEP's geospatial data and enable users to easily manipulate, transform, subsample and visualize the data. It supports geographic elevation data at the moment and will support more in the future.
 <hr>
 
 # Table of Contents
