@@ -1,5 +1,5 @@
-:octocat:
 # 3DEP-Farm
+# :shark:
 > A Python package for retrieving 3DEP's geospatial data and enable users to easily manipulate, transform, subsample and visualize the data. It supports geographic elevation data at the moment and will support more in the future.
 <hr>
 
@@ -70,4 +70,4 @@ pip install 3DEP-Farm
 <hr>
 
 # <a name='license'></a>License
-https://choosealicense.com/licenses/mit/
+[MIT](https://github.com/DePacifier/3DEP-Farm/blob/main/LICENSE)
