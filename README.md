@@ -12,11 +12,11 @@
 * [License](#license)
 
 # <a name='description'></a>Description
-> LiDAR (light detection and ranging) is a popular remote sensing mechanism used for measuring the exact distance of an object on the earth's surface. Since the introduction of GPS technology, it has become a widely used method for calculating accurate geospatial measurements. These geospatial data are used for different analysis purposes.
-
->The Purpose of this project is to help users retrieve these data and enable them to use it easily, so that they can better understand farmlands and their relations with different factors like elevation, water, soil, and more. 
-
->The Project will make it easier for users to access the AWS public dataset with minimal input and retrieve the LiDAR results efficiently. 
+> **LiDAR** (light detection and ranging) is a popular remote sensing mechanism used for measuring the exact distance of an object on the earth's surface. Since the introduction of GPS technology, it has become a widely used method for calculating accurate geospatial measurements. These geospatial data are used for different analysis purposes.
+>
+>The Purpose of this project is to **help users retrieve these data and enable them to use it easily**, so that they can better understand farmlands and their relations with different factors like elevation, water, soil, and more. 
+>
+>The Project will make it **easier** for users to access the AWS public dataset with **minimal input** and retrieve the LiDAR results **efficiently**. 
 
 <hr>
 
@@ -36,11 +36,11 @@
   - [ ] Composing a QuickStart Guide Notebook
 
 * Optional Tasks
-  - [] Enable Diagrammatic way of comparing original terrain and subsampled terrain
-  - [] Enable Soil-Data Fetching
-  - [] Enable Climate-Data Fetching
-  - [] Enable interaction with Sentinel public API
-  - [] Enable users to download satellite imagery using Sentinels API
+  - [ ] Enable Diagrammatic way of comparing original terrain and subsampled terrain
+  - [ ] Enable Soil-Data Fetching
+  - [ ] Enable Climate-Data Fetching
+  - [ ] Enable interaction with Sentinel public API
+  - [ ] Enable users to download satellite imagery using Sentinels API
 
 <hr>
 
