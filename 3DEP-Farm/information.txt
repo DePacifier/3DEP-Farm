@@ -1,0 +1,15 @@
+The data on the AWS 3DEP Public Dataset are stored in Web Mercator coordinate system,
+which is not suitable for many operations. We need to reproject them into an appropriate 
+UTM coordinate system (EPSG:26915).
+
+Web Mercator (EPSG:3857):
+    Center coordinates
+    0.00 -0.00
+
+    Projected bounds:
+    -20026376.39 -20048966.10
+    20026376.39 20048966.10
+    
+    WGS84 bounds:
+    -180.0 -85.06
+    180.0 85.06

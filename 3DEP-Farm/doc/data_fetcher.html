@@ -1,0 +1,2001 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>data_fetcher API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>data_fetcher</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import logging
+from typing import Tuple
+import pdal
+from json import load, dumps
+import sys
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+import geopandas as gpd
+from shapely.geometry import Polygon
+from shapely.geometry import Point
+from logger_creator import CreateLogger
+from subsampler import CloudSubSampler
+
+
+logger = CreateLogger(&#39;DataFetcher&#39;)
+logger = logger.get_default_logger()
+
+
+class DataFetcher():
+    &#34;&#34;&#34;A Data Fetcher Class which handles all data fetching activites with the AWS dataset 
+    and uses all the supporting classes like subsampling.
+
+    Parameters
+    ----------
+    polygon : Polygon
+        Polygon of the area which is being searched for
+    epsg : str
+        CRS system which the polygon is constructed based on
+    region: str, optional
+        Region where the specified polygon is located in from the file name folder located in the AWS dataset. If
+        not provided the program will search and provide the region if it is in the AWS dataset
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+
+    def __init__(self, polygon: Polygon, epsg: str, region: str = &#39;&#39;) -&gt; None:
+        try:
+            self.data_location = &#34;https://s3-us-west-2.amazonaws.com/usgs-lidar-public/&#34;
+            minx, miny, maxx, maxy = self.get_polygon_edges(polygon, epsg)
+
+            if(region != &#39;&#39;):
+                self.region = self.check_region(region)
+                self.file_location = self.data_location + self.region + &#34;/ept.json&#34;
+            else:
+                self.region = self.get_region_by_bounds(minx, miny, maxx, maxy)
+                self.file_location = self.region
+            print(self.region)
+
+            self.load_pipeline_template()
+            self.epsg = epsg
+
+            logger.info(&#39;Successfully Instantiated DataFetcher Class Object&#39;)
+
+        except Exception as e:
+            logger.exception(&#39;Failed to Instantiate DataFetcher Class Object&#39;)
+            sys.exit(1)
+
+    def check_region(self, region: str) -&gt; str:
+        &#34;&#34;&#34;Checks if a region provided is within the file name folders in the AWS dataset.
+
+        Parameters
+        ----------
+        region : str
+            Proabable file name of a folder in the AWS dataset
+
+        Returns
+        -------
+        str
+            Returns the same regions folder file name if it was successfully located
+        &#34;&#34;&#34;
+        with open(&#39;./filename.txt&#39;, &#39;r&#39;) as locations:
+            locations_list = locations.readlines()
+
+        if(region in locations_list):
+            return region
+        else:
+            logger.error(&#39;Region Not Available&#39;)
+            sys.exit(1)
+
+    def get_region_by_bounds(self, minx: float, miny: float, maxx: float, maxy: float, indx: int = 1) -&gt; str:
+        &#34;&#34;&#34;Searchs for a region which satisfies the polygon defined from the available boundaries in the AWS 
+        dataset.
+
+        Parameters
+        ----------
+        minx : float
+            Minimum longitude value of the polygon
+        miny : float
+            Minimum latitude value of the polygon
+        maxx : float
+            Maximum longitude value of the polygon
+        maxy : float
+            Maximum latitude value of the polygon
+        indx : int, optional
+            Bound indexing, to select the first or other access url&#39;s of multiple values for a region
+        Returns
+        -------
+        str
+            Access url to retrieve the data from the AWS dataset
+        &#34;&#34;&#34;
+
+        aws_dataset_info_csv = pd.read_csv(&#39;./aws_dataset.csv&#39;)
+        for index, bound in enumerate(aws_dataset_info_csv[&#39;Bound/s&#39;].to_list()):
+            bound = bound.strip(&#39;][&#39;).replace(
+                &#39;]&#39;, &#39;&#39;).replace(&#39;[&#39;, &#39;&#39;).split(&#39;,&#39;)
+            bound = list(map(float, bound))
+
+            bminx, bminy, bmaxx, bmaxy = bound[0 * indx], bound[1 *
+                                                                indx], bound[3 * indx], bound[4 * indx]
+
+            if((minx &gt;= bminx and maxx &lt;= bmaxx) and (miny &gt;= bminy and maxy &lt;= bmaxy)):
+                access_url = aws_dataset_info_csv[&#39;Access Url/s&#39;].to_list()[
+                    index][2:-2]
+
+                region = aws_dataset_info_csv[&#39;Region/s&#39;].to_list()[
+                    index] + &#39;_&#39; + aws_dataset_info_csv[&#39;Year/s&#39;].to_list()[index][2:-2]
+
+                logger.info(f&#39;Region found in {region} folder&#39;)
+
+                return access_url
+        else:
+            logger.error(&#39;Region Not Available&#39;)
+            sys.exit()
+
+    def load_pipeline_template(self, file_name: str = &#39;./pipeline_template.json&#39;) -&gt; None:
+        &#34;&#34;&#34;Loads Pipeline Template to constructe Pdal Pipelines from.
+
+        Parameters
+        ----------
+        file_name : str, optional
+            Path plus file name of the pipeline template if the template is not located in its normal locations,
+            or if another template file is needed to be loaded
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        try:
+            with open(file_name, &#39;r&#39;) as read_file:
+                template = load(read_file)
+
+            self.template_pipeline = template
+
+            logger.info(&#39;Successfully Loaded Pdal Pipeline Template&#39;)
+
+        except Exception as e:
+            logger.exception(&#39;Failed to Load Pdal Pipeline Template&#39;)
+            sys.exit(1)
+
+    def get_polygon_edges(self, polygon: Polygon, epsg: str) -&gt; tuple:
+        &#34;&#34;&#34;To extract polygon bounds and assign polygon cropping bounds.
+
+        Parameters
+        ----------
+        polygon : Polygon
+            Polygon object describing the boundary of the location required
+        epsg : str
+            CRS system on which the polygon is constructed on
+
+        Returns
+        -------
+        tuple
+            Returns bounds of the polygon provided(minx, miny, maxx, maxy)
+        &#34;&#34;&#34;
+        try:
+            grid = gpd.GeoDataFrame([polygon], columns=[&#34;geometry&#34;])
+            grid.set_crs(epsg=epsg, inplace=True)
+
+            grid[&#39;geometry&#39;] = grid.geometry.to_crs(epsg=3857)
+
+            minx, miny, maxx, maxy = grid.geometry[0].bounds
+            # bounds: ([minx, maxx], [miny, maxy])
+            self.extraction_bounds = f&#34;({[minx, maxx]},{[miny,maxy]})&#34;
+
+            # Cropping Bounds
+            self.polygon_cropping = self.get_crop_polygon(grid.geometry[0])
+
+            grid[&#39;geometry&#39;] = grid.geometry.to_crs(epsg=epsg)
+            self.geo_df = grid
+
+            logger.info(
+                &#39;Successfully Extracted Polygon Edges and Polygon Cropping Bounds&#39;)
+
+            return minx, miny, maxx, maxy
+
+        except Exception as e:
+            logger.exception(
+                &#39;Failed to Extract Polygon Edges and Polygon Cropping Bounds&#39;)
+
+    def get_crop_polygon(self, polygon: Polygon) -&gt; str:
+        &#34;&#34;&#34;Calculates Polygons Cropping string used when building Pdal&#39;s crop pipeline.
+
+        Parameters
+        ----------
+        polygon: Polygon
+            Polygon object describing the boundary of the location required
+
+        Returns
+        -------
+        str
+            Cropping string used by Pdal&#39;s crop pipeline
+        &#34;&#34;&#34;
+        polygon_cords = &#39;POLYGON((&#39;
+        for i in list(polygon.exterior.coords):
+            polygon_cords += f&#39;{i[0]} {i[1]},&#39;
+
+        polygon_cords = polygon_cords[:-1] + &#39;))&#39;
+
+        return polygon_cords
+
+    def construct_simple_pipeline(self) -&gt; None:
+        &#34;&#34;&#34;Generates a generic Pdal pipeline.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        self.pipeline = []
+        reader = self.template_pipeline[&#39;reader&#39;]
+        reader[&#39;bounds&#39;] = self.extraction_bounds
+        reader[&#39;filename&#39;] = self.file_location
+        self.pipeline.append(reader)
+
+        cropper = self.template_pipeline[&#39;cropping_filter&#39;]
+        cropper[&#39;polygon&#39;] = self.polygon_cropping
+        self.pipeline.append(cropper)
+
+        self.pipeline.append(self.template_pipeline[&#39;range_filter&#39;])
+        self.pipeline.append(self.template_pipeline[&#39;assign_filter&#39;])
+
+        reprojection = self.template_pipeline[&#39;reprojection_filter&#39;]
+        reprojection[&#39;out_srs&#39;] = f&#34;EPSG:{self.epsg}&#34;
+        self.pipeline.append(reprojection)
+
+        self.pipeline = pdal.Pipeline(dumps(self.pipeline))
+
+    def construct_pipeline_template_1(self, file_name: str, resolution: int = 1, window_size: int = 6, tif_values: list = [&#34;all&#34;]):
+        &#34;&#34;&#34;Generates a Pdal Pipeline with some configurations available.
+
+        Parameters
+        ----------
+        file_name : str
+            File name used when saving the tiff and LAZ file
+        resolution : str
+            What resolution to use when generating the tif file
+        window_size : int
+            Window size to consider when filling empty values to generate the tif file
+        tif_values : list
+            What values to save in the tif file, like mean, max, min ...
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        self.pipeline = []
+        reader = self.template_pipeline[&#39;reader&#39;]
+        reader[&#39;bounds&#39;] = self.extraction_bounds
+        reader[&#39;filename&#39;] = self.data_location + self.region + &#34;/ept.json&#34;
+        self.pipeline.append(reader)
+
+        self.pipeline.append(self.template_pipeline[&#39;range_filter&#39;])
+        self.pipeline.append(self.template_pipeline[&#39;assign_filter&#39;])
+
+        reprojection = self.template_pipeline[&#39;reprojection_filter&#39;]
+        reprojection[&#39;out_srs&#39;] = f&#34;EPSG:{self.epsg}&#34;
+        self.pipeline.append(reprojection)
+
+        # Simple Morphological Filter
+        self.pipeline.append(self.template_pipeline[&#39;smr_filter&#39;])
+        self.pipeline.append(self.template_pipeline[&#39;smr_range_filter&#39;])
+
+        laz_writer = self.template_pipeline[&#39;laz_writer&#39;]
+        laz_writer[&#39;filename&#39;] = f&#34;{file_name}_{self.region}.laz&#34;
+        self.pipeline.append(laz_writer)
+
+        tif_writer = self.template_pipeline[&#39;tif_writer&#39;]
+        tif_writer[&#39;filename&#39;] = f&#34;{file_name}_{self.region}.tif&#34;
+        tif_writer[&#39;output_type&#39;] = tif_values
+        tif_writer[&#34;resolution&#34;] = resolution
+        tif_writer[&#34;window_size&#34;] = window_size
+        self.pipeline.append(tif_writer)
+
+        self.pipeline = pdal.Pipeline(dumps(self.pipeline))
+
+    def get_data(self):
+        &#34;&#34;&#34;Retrieves Data from the AWS Dataset, builds the cloud points from it and 
+        assignes and stores the original cloud points and original elevation geopandas dataframe.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        try:
+            self.data_count = self.pipeline.execute()
+            self.create_cloud_points()
+            self.original_cloud_points = self.cloud_points
+            self.original_elevation_geodf = self.get_elevation_geodf()
+        except Exception as e:
+            sys.exit(1)
+
+    def get_pipeline_arrays(self):
+        &#34;&#34;&#34;Returns the Pdal pipelines retrieved data arrays after the pipeline is run.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        return self.pipeline.arrays
+
+    def get_pipeline_metadata(self):
+        &#34;&#34;&#34;Returns the Pdal pipelines metadata of the retrieved data after the pipeline is run.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        return self.pipeline.metadata
+
+    def get_pipeline_log(self):
+        &#34;&#34;&#34;Returns the Pdal pipelines log after the pipeline is run.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        return self.pipeline.log
+
+    def create_cloud_points(self):
+        &#34;&#34;&#34;Creates Cloud Points from the retrieved Pipeline Arrays consisting of other unwanted data.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        try:
+            cloud_points = []
+            for row in self.get_pipeline_arrays()[0]:
+                lst = row.tolist()[-3:]
+                cloud_points.append(lst)
+
+            cloud_points = np.array(cloud_points)
+
+            self.cloud_points = cloud_points
+
+        except:
+            print(&#39;Failed to create cloud points&#39;)
+            sys.exit(1)
+
+    def get_elevation_geodf(self) -&gt; gpd.GeoDataFrame:
+        &#34;&#34;&#34;Calculates and returns a geopandas elevation dataframe from the cloud points generated before.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        gpd.GeoDataFrame
+            Geopandas Dataframe with Elevation and coordinate points referenced as Geometry points
+        &#34;&#34;&#34;
+        elevation = gpd.GeoDataFrame()
+        elevations = []
+        points = []
+        for row in self.cloud_points:
+            elevations.append(row[2])
+            point = Point(row[0], row[1])
+            points.append(point)
+
+        elevation[&#39;elevation&#39;] = elevations
+        elevation[&#39;geometry&#39;] = points
+        elevation.set_crs(epsg=self.epsg, inplace=True)
+
+        self.elevation_geodf = elevation
+
+        return self.elevation_geodf
+
+    def get_scatter_plot(self, factor_value: int = 1, view_angle: Tuple[int, int] = (0, 0)) -&gt; plt:
+        &#34;&#34;&#34;Constructs a scatter plot graph of the cloud points.
+
+        Parameters
+        ----------
+        factor_value : int, optional
+            Factoring value if the data points are huge
+        view_angle : tuple(int, int), optional
+            Values to change the view angle of the 3D projection
+
+        Returns
+        -------
+        plt
+            Returns a scatter plot grpah of the cloud points
+        &#34;&#34;&#34;
+
+        values = self.cloud_points[::factor_value]
+
+        fig = plt.figure(figsize=(10, 15))
+
+        ax = plt.axes(projection=&#39;3d&#39;)
+
+        ax.scatter3D(values[:, 0], values[:, 1],
+                     values[:, 2], c=values[:, 2], s=0.1, cmap=&#39;terrain&#39;)
+
+        ax.set_xlabel(&#39;Longitude&#39;)
+        ax.set_ylabel(&#39;Latitude&#39;)
+        ax.set_zlabel(&#39;Elevation&#39;)
+
+        ax.set_title(&#39;Elevation Scatter Plot&#39;)
+
+        ax.view_init(view_angle[0], view_angle[1])
+
+        return plt
+
+    def get_terrain_map(self, markersize: int = 10, fig_size: Tuple[int, int] = (15, 20)) -&gt; plt:
+        &#34;&#34;&#34;Constructs a Terrain Map from the cloud points.
+
+        Parameters
+        ----------
+        markersize : int, optional
+            Marker size used when ploting the figure
+        fig_size : Tuple[int, int], optional
+            Size of the figure to be returned
+
+        Returns
+        -------
+        plt
+            Returns a Terrain Map constructed from the cloud points
+        &#34;&#34;&#34;
+        self.get_elevation_geodf()
+
+        self.elevation_geodf.plot(c=&#39;elevation&#39;, scheme=&#34;quantiles&#34;, cmap=&#39;terrain&#39;, legend=True,
+                                  markersize=markersize,
+                                  figsize=(fig_size[0], fig_size[1]),
+                                  missing_kwds={
+                                    &#34;color&#34;: &#34;lightgrey&#34;,
+                                    &#34;edgecolor&#34;: &#34;red&#34;,
+                                    &#34;hatch&#34;: &#34;///&#34;,
+                                    &#34;label&#34;: &#34;Missing values&#34;}
+                                  )
+
+        plt.title(&#39;Terrain Elevation Map&#39;)
+        plt.xlabel(&#39;Longitude&#39;)
+        plt.ylabel(&#39;Latitude&#39;)
+
+        return plt
+
+    # def compare_original_sampled_scatter_plot(self):
+    #     pass
+
+    def apply_factor_sampling(self, factor: int):
+        &#34;&#34;&#34;Apply Factor Sampling on the Cloud Points.
+
+        Parameters
+        ----------
+        factor : int
+            Steps to take to select the next sample from the Cloud Points.           
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        self.sampler_class = CloudSubSampler(self.cloud_points)
+        self.cloud_points = self.sampler_class.get_factor_subsampling(
+            factor=factor)
+
+    def apply_grid_sampling(self, voxel_size: float, sampling_type: str = &#39;closest&#39;):
+        &#34;&#34;&#34;Apply Grid Sampling on the Cloud Points.
+
+        Parameters
+        ----------
+        voxel_size : float
+            Size of the voxel to consider when applying the grid sampling
+        sampling_type : str, optional
+            Type of sampling to be used when applying the grid sampling
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        self.sampler_class = CloudSubSampler(self.cloud_points)
+        self.cloud_points = self.sampler_class.get_grid_subsampling(
+            voxel_size=voxel_size, sampling_type=sampling_type)
+
+    def save_cloud_points_for_3d(self, filename: str):
+        &#34;&#34;&#34;Save the variable to an ASCII file to open in a 3D Software.
+
+        Parameters
+        ----------
+        file_name : str
+            String of the path plus name to save the cloud point on to
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        np.savetxt(filename + &#34;_cloud_points.xyz&#34;,
+                   self.cloud_points, delimiter=&#34;;&#34;, fmt=&#34;%s&#34;)
+
+
+if __name__ == &#34;__main__&#34;:
+    MINX, MINY, MAXX, MAXY = [-93.756155, 41.918015, -93.747334, 41.921429]
+    polygon = Polygon(((MINX, MINY), (MINX, MAXY),
+                       (MAXX, MAXY), (MAXX, MINY), (MINX, MINY)))
+
+    df = DataFetcher(polygon=polygon, region=&#34;IA_FullState&#34;, epsg=&#34;4326&#34;)
+
+    df.construct_simple_pipeline()
+
+    df.get_data()
+
+    elevation = df.elevation_geodf()
+
+    elevation.sample(10)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="data_fetcher.DataFetcher"><code class="flex name class">
+<span>class <span class="ident">DataFetcher</span></span>
+<span>(</span><span>polygon: shapely.geometry.polygon.Polygon, epsg: str, region: str = '')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A Data Fetcher Class which handles all data fetching activites with the AWS dataset
+and uses all the supporting classes like subsampling.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>polygon</code></strong> :&ensp;<code>Polygon</code></dt>
+<dd>Polygon of the area which is being searched for</dd>
+<dt><strong><code>epsg</code></strong> :&ensp;<code>str</code></dt>
+<dd>CRS system which the polygon is constructed based on</dd>
+<dt><strong><code>region</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Region where the specified polygon is located in from the file name folder located in the AWS dataset. If
+not provided the program will search and provide the region if it is in the AWS dataset</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataFetcher():
+    &#34;&#34;&#34;A Data Fetcher Class which handles all data fetching activites with the AWS dataset 
+    and uses all the supporting classes like subsampling.
+
+    Parameters
+    ----------
+    polygon : Polygon
+        Polygon of the area which is being searched for
+    epsg : str
+        CRS system which the polygon is constructed based on
+    region: str, optional
+        Region where the specified polygon is located in from the file name folder located in the AWS dataset. If
+        not provided the program will search and provide the region if it is in the AWS dataset
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+
+    def __init__(self, polygon: Polygon, epsg: str, region: str = &#39;&#39;) -&gt; None:
+        try:
+            self.data_location = &#34;https://s3-us-west-2.amazonaws.com/usgs-lidar-public/&#34;
+            minx, miny, maxx, maxy = self.get_polygon_edges(polygon, epsg)
+
+            if(region != &#39;&#39;):
+                self.region = self.check_region(region)
+                self.file_location = self.data_location + self.region + &#34;/ept.json&#34;
+            else:
+                self.region = self.get_region_by_bounds(minx, miny, maxx, maxy)
+                self.file_location = self.region
+            print(self.region)
+
+            self.load_pipeline_template()
+            self.epsg = epsg
+
+            logger.info(&#39;Successfully Instantiated DataFetcher Class Object&#39;)
+
+        except Exception as e:
+            logger.exception(&#39;Failed to Instantiate DataFetcher Class Object&#39;)
+            sys.exit(1)
+
+    def check_region(self, region: str) -&gt; str:
+        &#34;&#34;&#34;Checks if a region provided is within the file name folders in the AWS dataset.
+
+        Parameters
+        ----------
+        region : str
+            Proabable file name of a folder in the AWS dataset
+
+        Returns
+        -------
+        str
+            Returns the same regions folder file name if it was successfully located
+        &#34;&#34;&#34;
+        with open(&#39;./filename.txt&#39;, &#39;r&#39;) as locations:
+            locations_list = locations.readlines()
+
+        if(region in locations_list):
+            return region
+        else:
+            logger.error(&#39;Region Not Available&#39;)
+            sys.exit(1)
+
+    def get_region_by_bounds(self, minx: float, miny: float, maxx: float, maxy: float, indx: int = 1) -&gt; str:
+        &#34;&#34;&#34;Searchs for a region which satisfies the polygon defined from the available boundaries in the AWS 
+        dataset.
+
+        Parameters
+        ----------
+        minx : float
+            Minimum longitude value of the polygon
+        miny : float
+            Minimum latitude value of the polygon
+        maxx : float
+            Maximum longitude value of the polygon
+        maxy : float
+            Maximum latitude value of the polygon
+        indx : int, optional
+            Bound indexing, to select the first or other access url&#39;s of multiple values for a region
+        Returns
+        -------
+        str
+            Access url to retrieve the data from the AWS dataset
+        &#34;&#34;&#34;
+
+        aws_dataset_info_csv = pd.read_csv(&#39;./aws_dataset.csv&#39;)
+        for index, bound in enumerate(aws_dataset_info_csv[&#39;Bound/s&#39;].to_list()):
+            bound = bound.strip(&#39;][&#39;).replace(
+                &#39;]&#39;, &#39;&#39;).replace(&#39;[&#39;, &#39;&#39;).split(&#39;,&#39;)
+            bound = list(map(float, bound))
+
+            bminx, bminy, bmaxx, bmaxy = bound[0 * indx], bound[1 *
+                                                                indx], bound[3 * indx], bound[4 * indx]
+
+            if((minx &gt;= bminx and maxx &lt;= bmaxx) and (miny &gt;= bminy and maxy &lt;= bmaxy)):
+                access_url = aws_dataset_info_csv[&#39;Access Url/s&#39;].to_list()[
+                    index][2:-2]
+
+                region = aws_dataset_info_csv[&#39;Region/s&#39;].to_list()[
+                    index] + &#39;_&#39; + aws_dataset_info_csv[&#39;Year/s&#39;].to_list()[index][2:-2]
+
+                logger.info(f&#39;Region found in {region} folder&#39;)
+
+                return access_url
+        else:
+            logger.error(&#39;Region Not Available&#39;)
+            sys.exit()
+
+    def load_pipeline_template(self, file_name: str = &#39;./pipeline_template.json&#39;) -&gt; None:
+        &#34;&#34;&#34;Loads Pipeline Template to constructe Pdal Pipelines from.
+
+        Parameters
+        ----------
+        file_name : str, optional
+            Path plus file name of the pipeline template if the template is not located in its normal locations,
+            or if another template file is needed to be loaded
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        try:
+            with open(file_name, &#39;r&#39;) as read_file:
+                template = load(read_file)
+
+            self.template_pipeline = template
+
+            logger.info(&#39;Successfully Loaded Pdal Pipeline Template&#39;)
+
+        except Exception as e:
+            logger.exception(&#39;Failed to Load Pdal Pipeline Template&#39;)
+            sys.exit(1)
+
+    def get_polygon_edges(self, polygon: Polygon, epsg: str) -&gt; tuple:
+        &#34;&#34;&#34;To extract polygon bounds and assign polygon cropping bounds.
+
+        Parameters
+        ----------
+        polygon : Polygon
+            Polygon object describing the boundary of the location required
+        epsg : str
+            CRS system on which the polygon is constructed on
+
+        Returns
+        -------
+        tuple
+            Returns bounds of the polygon provided(minx, miny, maxx, maxy)
+        &#34;&#34;&#34;
+        try:
+            grid = gpd.GeoDataFrame([polygon], columns=[&#34;geometry&#34;])
+            grid.set_crs(epsg=epsg, inplace=True)
+
+            grid[&#39;geometry&#39;] = grid.geometry.to_crs(epsg=3857)
+
+            minx, miny, maxx, maxy = grid.geometry[0].bounds
+            # bounds: ([minx, maxx], [miny, maxy])
+            self.extraction_bounds = f&#34;({[minx, maxx]},{[miny,maxy]})&#34;
+
+            # Cropping Bounds
+            self.polygon_cropping = self.get_crop_polygon(grid.geometry[0])
+
+            grid[&#39;geometry&#39;] = grid.geometry.to_crs(epsg=epsg)
+            self.geo_df = grid
+
+            logger.info(
+                &#39;Successfully Extracted Polygon Edges and Polygon Cropping Bounds&#39;)
+
+            return minx, miny, maxx, maxy
+
+        except Exception as e:
+            logger.exception(
+                &#39;Failed to Extract Polygon Edges and Polygon Cropping Bounds&#39;)
+
+    def get_crop_polygon(self, polygon: Polygon) -&gt; str:
+        &#34;&#34;&#34;Calculates Polygons Cropping string used when building Pdal&#39;s crop pipeline.
+
+        Parameters
+        ----------
+        polygon: Polygon
+            Polygon object describing the boundary of the location required
+
+        Returns
+        -------
+        str
+            Cropping string used by Pdal&#39;s crop pipeline
+        &#34;&#34;&#34;
+        polygon_cords = &#39;POLYGON((&#39;
+        for i in list(polygon.exterior.coords):
+            polygon_cords += f&#39;{i[0]} {i[1]},&#39;
+
+        polygon_cords = polygon_cords[:-1] + &#39;))&#39;
+
+        return polygon_cords
+
+    def construct_simple_pipeline(self) -&gt; None:
+        &#34;&#34;&#34;Generates a generic Pdal pipeline.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        self.pipeline = []
+        reader = self.template_pipeline[&#39;reader&#39;]
+        reader[&#39;bounds&#39;] = self.extraction_bounds
+        reader[&#39;filename&#39;] = self.file_location
+        self.pipeline.append(reader)
+
+        cropper = self.template_pipeline[&#39;cropping_filter&#39;]
+        cropper[&#39;polygon&#39;] = self.polygon_cropping
+        self.pipeline.append(cropper)
+
+        self.pipeline.append(self.template_pipeline[&#39;range_filter&#39;])
+        self.pipeline.append(self.template_pipeline[&#39;assign_filter&#39;])
+
+        reprojection = self.template_pipeline[&#39;reprojection_filter&#39;]
+        reprojection[&#39;out_srs&#39;] = f&#34;EPSG:{self.epsg}&#34;
+        self.pipeline.append(reprojection)
+
+        self.pipeline = pdal.Pipeline(dumps(self.pipeline))
+
+    def construct_pipeline_template_1(self, file_name: str, resolution: int = 1, window_size: int = 6, tif_values: list = [&#34;all&#34;]):
+        &#34;&#34;&#34;Generates a Pdal Pipeline with some configurations available.
+
+        Parameters
+        ----------
+        file_name : str
+            File name used when saving the tiff and LAZ file
+        resolution : str
+            What resolution to use when generating the tif file
+        window_size : int
+            Window size to consider when filling empty values to generate the tif file
+        tif_values : list
+            What values to save in the tif file, like mean, max, min ...
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        self.pipeline = []
+        reader = self.template_pipeline[&#39;reader&#39;]
+        reader[&#39;bounds&#39;] = self.extraction_bounds
+        reader[&#39;filename&#39;] = self.data_location + self.region + &#34;/ept.json&#34;
+        self.pipeline.append(reader)
+
+        self.pipeline.append(self.template_pipeline[&#39;range_filter&#39;])
+        self.pipeline.append(self.template_pipeline[&#39;assign_filter&#39;])
+
+        reprojection = self.template_pipeline[&#39;reprojection_filter&#39;]
+        reprojection[&#39;out_srs&#39;] = f&#34;EPSG:{self.epsg}&#34;
+        self.pipeline.append(reprojection)
+
+        # Simple Morphological Filter
+        self.pipeline.append(self.template_pipeline[&#39;smr_filter&#39;])
+        self.pipeline.append(self.template_pipeline[&#39;smr_range_filter&#39;])
+
+        laz_writer = self.template_pipeline[&#39;laz_writer&#39;]
+        laz_writer[&#39;filename&#39;] = f&#34;{file_name}_{self.region}.laz&#34;
+        self.pipeline.append(laz_writer)
+
+        tif_writer = self.template_pipeline[&#39;tif_writer&#39;]
+        tif_writer[&#39;filename&#39;] = f&#34;{file_name}_{self.region}.tif&#34;
+        tif_writer[&#39;output_type&#39;] = tif_values
+        tif_writer[&#34;resolution&#34;] = resolution
+        tif_writer[&#34;window_size&#34;] = window_size
+        self.pipeline.append(tif_writer)
+
+        self.pipeline = pdal.Pipeline(dumps(self.pipeline))
+
+    def get_data(self):
+        &#34;&#34;&#34;Retrieves Data from the AWS Dataset, builds the cloud points from it and 
+        assignes and stores the original cloud points and original elevation geopandas dataframe.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        try:
+            self.data_count = self.pipeline.execute()
+            self.create_cloud_points()
+            self.original_cloud_points = self.cloud_points
+            self.original_elevation_geodf = self.get_elevation_geodf()
+        except Exception as e:
+            sys.exit(1)
+
+    def get_pipeline_arrays(self):
+        &#34;&#34;&#34;Returns the Pdal pipelines retrieved data arrays after the pipeline is run.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        return self.pipeline.arrays
+
+    def get_pipeline_metadata(self):
+        &#34;&#34;&#34;Returns the Pdal pipelines metadata of the retrieved data after the pipeline is run.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        return self.pipeline.metadata
+
+    def get_pipeline_log(self):
+        &#34;&#34;&#34;Returns the Pdal pipelines log after the pipeline is run.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        return self.pipeline.log
+
+    def create_cloud_points(self):
+        &#34;&#34;&#34;Creates Cloud Points from the retrieved Pipeline Arrays consisting of other unwanted data.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        try:
+            cloud_points = []
+            for row in self.get_pipeline_arrays()[0]:
+                lst = row.tolist()[-3:]
+                cloud_points.append(lst)
+
+            cloud_points = np.array(cloud_points)
+
+            self.cloud_points = cloud_points
+
+        except:
+            print(&#39;Failed to create cloud points&#39;)
+            sys.exit(1)
+
+    def get_elevation_geodf(self) -&gt; gpd.GeoDataFrame:
+        &#34;&#34;&#34;Calculates and returns a geopandas elevation dataframe from the cloud points generated before.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        gpd.GeoDataFrame
+            Geopandas Dataframe with Elevation and coordinate points referenced as Geometry points
+        &#34;&#34;&#34;
+        elevation = gpd.GeoDataFrame()
+        elevations = []
+        points = []
+        for row in self.cloud_points:
+            elevations.append(row[2])
+            point = Point(row[0], row[1])
+            points.append(point)
+
+        elevation[&#39;elevation&#39;] = elevations
+        elevation[&#39;geometry&#39;] = points
+        elevation.set_crs(epsg=self.epsg, inplace=True)
+
+        self.elevation_geodf = elevation
+
+        return self.elevation_geodf
+
+    def get_scatter_plot(self, factor_value: int = 1, view_angle: Tuple[int, int] = (0, 0)) -&gt; plt:
+        &#34;&#34;&#34;Constructs a scatter plot graph of the cloud points.
+
+        Parameters
+        ----------
+        factor_value : int, optional
+            Factoring value if the data points are huge
+        view_angle : tuple(int, int), optional
+            Values to change the view angle of the 3D projection
+
+        Returns
+        -------
+        plt
+            Returns a scatter plot grpah of the cloud points
+        &#34;&#34;&#34;
+
+        values = self.cloud_points[::factor_value]
+
+        fig = plt.figure(figsize=(10, 15))
+
+        ax = plt.axes(projection=&#39;3d&#39;)
+
+        ax.scatter3D(values[:, 0], values[:, 1],
+                     values[:, 2], c=values[:, 2], s=0.1, cmap=&#39;terrain&#39;)
+
+        ax.set_xlabel(&#39;Longitude&#39;)
+        ax.set_ylabel(&#39;Latitude&#39;)
+        ax.set_zlabel(&#39;Elevation&#39;)
+
+        ax.set_title(&#39;Elevation Scatter Plot&#39;)
+
+        ax.view_init(view_angle[0], view_angle[1])
+
+        return plt
+
+    def get_terrain_map(self, markersize: int = 10, fig_size: Tuple[int, int] = (15, 20)) -&gt; plt:
+        &#34;&#34;&#34;Constructs a Terrain Map from the cloud points.
+
+        Parameters
+        ----------
+        markersize : int, optional
+            Marker size used when ploting the figure
+        fig_size : Tuple[int, int], optional
+            Size of the figure to be returned
+
+        Returns
+        -------
+        plt
+            Returns a Terrain Map constructed from the cloud points
+        &#34;&#34;&#34;
+        self.get_elevation_geodf()
+
+        self.elevation_geodf.plot(c=&#39;elevation&#39;, scheme=&#34;quantiles&#34;, cmap=&#39;terrain&#39;, legend=True,
+                                  markersize=markersize,
+                                  figsize=(fig_size[0], fig_size[1]),
+                                  missing_kwds={
+                                    &#34;color&#34;: &#34;lightgrey&#34;,
+                                    &#34;edgecolor&#34;: &#34;red&#34;,
+                                    &#34;hatch&#34;: &#34;///&#34;,
+                                    &#34;label&#34;: &#34;Missing values&#34;}
+                                  )
+
+        plt.title(&#39;Terrain Elevation Map&#39;)
+        plt.xlabel(&#39;Longitude&#39;)
+        plt.ylabel(&#39;Latitude&#39;)
+
+        return plt
+
+    # def compare_original_sampled_scatter_plot(self):
+    #     pass
+
+    def apply_factor_sampling(self, factor: int):
+        &#34;&#34;&#34;Apply Factor Sampling on the Cloud Points.
+
+        Parameters
+        ----------
+        factor : int
+            Steps to take to select the next sample from the Cloud Points.           
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        self.sampler_class = CloudSubSampler(self.cloud_points)
+        self.cloud_points = self.sampler_class.get_factor_subsampling(
+            factor=factor)
+
+    def apply_grid_sampling(self, voxel_size: float, sampling_type: str = &#39;closest&#39;):
+        &#34;&#34;&#34;Apply Grid Sampling on the Cloud Points.
+
+        Parameters
+        ----------
+        voxel_size : float
+            Size of the voxel to consider when applying the grid sampling
+        sampling_type : str, optional
+            Type of sampling to be used when applying the grid sampling
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        self.sampler_class = CloudSubSampler(self.cloud_points)
+        self.cloud_points = self.sampler_class.get_grid_subsampling(
+            voxel_size=voxel_size, sampling_type=sampling_type)
+
+    def save_cloud_points_for_3d(self, filename: str):
+        &#34;&#34;&#34;Save the variable to an ASCII file to open in a 3D Software.
+
+        Parameters
+        ----------
+        file_name : str
+            String of the path plus name to save the cloud point on to
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+        np.savetxt(filename + &#34;_cloud_points.xyz&#34;,
+                   self.cloud_points, delimiter=&#34;;&#34;, fmt=&#34;%s&#34;)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="data_fetcher.DataFetcher.apply_factor_sampling"><code class="name flex">
+<span>def <span class="ident">apply_factor_sampling</span></span>(<span>self, factor: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Apply Factor Sampling on the Cloud Points.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>factor</code></strong> :&ensp;<code>int</code></dt>
+<dd>Steps to take to select the next sample from the Cloud Points.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def apply_factor_sampling(self, factor: int):
+    &#34;&#34;&#34;Apply Factor Sampling on the Cloud Points.
+
+    Parameters
+    ----------
+    factor : int
+        Steps to take to select the next sample from the Cloud Points.           
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+    self.sampler_class = CloudSubSampler(self.cloud_points)
+    self.cloud_points = self.sampler_class.get_factor_subsampling(
+        factor=factor)</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.apply_grid_sampling"><code class="name flex">
+<span>def <span class="ident">apply_grid_sampling</span></span>(<span>self, voxel_size: float, sampling_type: str = 'closest')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Apply Grid Sampling on the Cloud Points.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>voxel_size</code></strong> :&ensp;<code>float</code></dt>
+<dd>Size of the voxel to consider when applying the grid sampling</dd>
+<dt><strong><code>sampling_type</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Type of sampling to be used when applying the grid sampling</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def apply_grid_sampling(self, voxel_size: float, sampling_type: str = &#39;closest&#39;):
+    &#34;&#34;&#34;Apply Grid Sampling on the Cloud Points.
+
+    Parameters
+    ----------
+    voxel_size : float
+        Size of the voxel to consider when applying the grid sampling
+    sampling_type : str, optional
+        Type of sampling to be used when applying the grid sampling
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+    self.sampler_class = CloudSubSampler(self.cloud_points)
+    self.cloud_points = self.sampler_class.get_grid_subsampling(
+        voxel_size=voxel_size, sampling_type=sampling_type)</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.check_region"><code class="name flex">
+<span>def <span class="ident">check_region</span></span>(<span>self, region: str) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if a region provided is within the file name folders in the AWS dataset.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>region</code></strong> :&ensp;<code>str</code></dt>
+<dd>Proabable file name of a folder in the AWS dataset</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Returns the same regions folder file name if it was successfully located</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_region(self, region: str) -&gt; str:
+    &#34;&#34;&#34;Checks if a region provided is within the file name folders in the AWS dataset.
+
+    Parameters
+    ----------
+    region : str
+        Proabable file name of a folder in the AWS dataset
+
+    Returns
+    -------
+    str
+        Returns the same regions folder file name if it was successfully located
+    &#34;&#34;&#34;
+    with open(&#39;./filename.txt&#39;, &#39;r&#39;) as locations:
+        locations_list = locations.readlines()
+
+    if(region in locations_list):
+        return region
+    else:
+        logger.error(&#39;Region Not Available&#39;)
+        sys.exit(1)</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.construct_pipeline_template_1"><code class="name flex">
+<span>def <span class="ident">construct_pipeline_template_1</span></span>(<span>self, file_name: str, resolution: int = 1, window_size: int = 6, tif_values: list = ['all'])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates a Pdal Pipeline with some configurations available.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>file_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>File name used when saving the tiff and LAZ file</dd>
+<dt><strong><code>resolution</code></strong> :&ensp;<code>str</code></dt>
+<dd>What resolution to use when generating the tif file</dd>
+<dt><strong><code>window_size</code></strong> :&ensp;<code>int</code></dt>
+<dd>Window size to consider when filling empty values to generate the tif file</dd>
+<dt><strong><code>tif_values</code></strong> :&ensp;<code>list</code></dt>
+<dd>What values to save in the tif file, like mean, max, min &hellip;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def construct_pipeline_template_1(self, file_name: str, resolution: int = 1, window_size: int = 6, tif_values: list = [&#34;all&#34;]):
+    &#34;&#34;&#34;Generates a Pdal Pipeline with some configurations available.
+
+    Parameters
+    ----------
+    file_name : str
+        File name used when saving the tiff and LAZ file
+    resolution : str
+        What resolution to use when generating the tif file
+    window_size : int
+        Window size to consider when filling empty values to generate the tif file
+    tif_values : list
+        What values to save in the tif file, like mean, max, min ...
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+    self.pipeline = []
+    reader = self.template_pipeline[&#39;reader&#39;]
+    reader[&#39;bounds&#39;] = self.extraction_bounds
+    reader[&#39;filename&#39;] = self.data_location + self.region + &#34;/ept.json&#34;
+    self.pipeline.append(reader)
+
+    self.pipeline.append(self.template_pipeline[&#39;range_filter&#39;])
+    self.pipeline.append(self.template_pipeline[&#39;assign_filter&#39;])
+
+    reprojection = self.template_pipeline[&#39;reprojection_filter&#39;]
+    reprojection[&#39;out_srs&#39;] = f&#34;EPSG:{self.epsg}&#34;
+    self.pipeline.append(reprojection)
+
+    # Simple Morphological Filter
+    self.pipeline.append(self.template_pipeline[&#39;smr_filter&#39;])
+    self.pipeline.append(self.template_pipeline[&#39;smr_range_filter&#39;])
+
+    laz_writer = self.template_pipeline[&#39;laz_writer&#39;]
+    laz_writer[&#39;filename&#39;] = f&#34;{file_name}_{self.region}.laz&#34;
+    self.pipeline.append(laz_writer)
+
+    tif_writer = self.template_pipeline[&#39;tif_writer&#39;]
+    tif_writer[&#39;filename&#39;] = f&#34;{file_name}_{self.region}.tif&#34;
+    tif_writer[&#39;output_type&#39;] = tif_values
+    tif_writer[&#34;resolution&#34;] = resolution
+    tif_writer[&#34;window_size&#34;] = window_size
+    self.pipeline.append(tif_writer)
+
+    self.pipeline = pdal.Pipeline(dumps(self.pipeline))</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.construct_simple_pipeline"><code class="name flex">
+<span>def <span class="ident">construct_simple_pipeline</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates a generic Pdal pipeline.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def construct_simple_pipeline(self) -&gt; None:
+    &#34;&#34;&#34;Generates a generic Pdal pipeline.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+    self.pipeline = []
+    reader = self.template_pipeline[&#39;reader&#39;]
+    reader[&#39;bounds&#39;] = self.extraction_bounds
+    reader[&#39;filename&#39;] = self.file_location
+    self.pipeline.append(reader)
+
+    cropper = self.template_pipeline[&#39;cropping_filter&#39;]
+    cropper[&#39;polygon&#39;] = self.polygon_cropping
+    self.pipeline.append(cropper)
+
+    self.pipeline.append(self.template_pipeline[&#39;range_filter&#39;])
+    self.pipeline.append(self.template_pipeline[&#39;assign_filter&#39;])
+
+    reprojection = self.template_pipeline[&#39;reprojection_filter&#39;]
+    reprojection[&#39;out_srs&#39;] = f&#34;EPSG:{self.epsg}&#34;
+    self.pipeline.append(reprojection)
+
+    self.pipeline = pdal.Pipeline(dumps(self.pipeline))</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.create_cloud_points"><code class="name flex">
+<span>def <span class="ident">create_cloud_points</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates Cloud Points from the retrieved Pipeline Arrays consisting of other unwanted data.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_cloud_points(self):
+    &#34;&#34;&#34;Creates Cloud Points from the retrieved Pipeline Arrays consisting of other unwanted data.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+    try:
+        cloud_points = []
+        for row in self.get_pipeline_arrays()[0]:
+            lst = row.tolist()[-3:]
+            cloud_points.append(lst)
+
+        cloud_points = np.array(cloud_points)
+
+        self.cloud_points = cloud_points
+
+    except:
+        print(&#39;Failed to create cloud points&#39;)
+        sys.exit(1)</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.get_crop_polygon"><code class="name flex">
+<span>def <span class="ident">get_crop_polygon</span></span>(<span>self, polygon: shapely.geometry.polygon.Polygon) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates Polygons Cropping string used when building Pdal's crop pipeline.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>polygon</code></strong> :&ensp;<code>Polygon</code></dt>
+<dd>Polygon object describing the boundary of the location required</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Cropping string used by Pdal's crop pipeline</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_crop_polygon(self, polygon: Polygon) -&gt; str:
+    &#34;&#34;&#34;Calculates Polygons Cropping string used when building Pdal&#39;s crop pipeline.
+
+    Parameters
+    ----------
+    polygon: Polygon
+        Polygon object describing the boundary of the location required
+
+    Returns
+    -------
+    str
+        Cropping string used by Pdal&#39;s crop pipeline
+    &#34;&#34;&#34;
+    polygon_cords = &#39;POLYGON((&#39;
+    for i in list(polygon.exterior.coords):
+        polygon_cords += f&#39;{i[0]} {i[1]},&#39;
+
+    polygon_cords = polygon_cords[:-1] + &#39;))&#39;
+
+    return polygon_cords</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.get_data"><code class="name flex">
+<span>def <span class="ident">get_data</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieves Data from the AWS Dataset, builds the cloud points from it and
+assignes and stores the original cloud points and original elevation geopandas dataframe.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_data(self):
+    &#34;&#34;&#34;Retrieves Data from the AWS Dataset, builds the cloud points from it and 
+    assignes and stores the original cloud points and original elevation geopandas dataframe.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+    try:
+        self.data_count = self.pipeline.execute()
+        self.create_cloud_points()
+        self.original_cloud_points = self.cloud_points
+        self.original_elevation_geodf = self.get_elevation_geodf()
+    except Exception as e:
+        sys.exit(1)</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.get_elevation_geodf"><code class="name flex">
+<span>def <span class="ident">get_elevation_geodf</span></span>(<span>self) ‑> geopandas.geodataframe.GeoDataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates and returns a geopandas elevation dataframe from the cloud points generated before.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>gpd.GeoDataFrame</code></dt>
+<dd>Geopandas Dataframe with Elevation and coordinate points referenced as Geometry points</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_elevation_geodf(self) -&gt; gpd.GeoDataFrame:
+    &#34;&#34;&#34;Calculates and returns a geopandas elevation dataframe from the cloud points generated before.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    gpd.GeoDataFrame
+        Geopandas Dataframe with Elevation and coordinate points referenced as Geometry points
+    &#34;&#34;&#34;
+    elevation = gpd.GeoDataFrame()
+    elevations = []
+    points = []
+    for row in self.cloud_points:
+        elevations.append(row[2])
+        point = Point(row[0], row[1])
+        points.append(point)
+
+    elevation[&#39;elevation&#39;] = elevations
+    elevation[&#39;geometry&#39;] = points
+    elevation.set_crs(epsg=self.epsg, inplace=True)
+
+    self.elevation_geodf = elevation
+
+    return self.elevation_geodf</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.get_pipeline_arrays"><code class="name flex">
+<span>def <span class="ident">get_pipeline_arrays</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the Pdal pipelines retrieved data arrays after the pipeline is run.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pipeline_arrays(self):
+    &#34;&#34;&#34;Returns the Pdal pipelines retrieved data arrays after the pipeline is run.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+    return self.pipeline.arrays</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.get_pipeline_log"><code class="name flex">
+<span>def <span class="ident">get_pipeline_log</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the Pdal pipelines log after the pipeline is run.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pipeline_log(self):
+    &#34;&#34;&#34;Returns the Pdal pipelines log after the pipeline is run.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+    return self.pipeline.log</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.get_pipeline_metadata"><code class="name flex">
+<span>def <span class="ident">get_pipeline_metadata</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the Pdal pipelines metadata of the retrieved data after the pipeline is run.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>None</code></strong></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pipeline_metadata(self):
+    &#34;&#34;&#34;Returns the Pdal pipelines metadata of the retrieved data after the pipeline is run.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+    return self.pipeline.metadata</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.get_polygon_edges"><code class="name flex">
+<span>def <span class="ident">get_polygon_edges</span></span>(<span>self, polygon: shapely.geometry.polygon.Polygon, epsg: str) ‑> tuple</span>
+</code></dt>
+<dd>
+<div class="desc"><p>To extract polygon bounds and assign polygon cropping bounds.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>polygon</code></strong> :&ensp;<code>Polygon</code></dt>
+<dd>Polygon object describing the boundary of the location required</dd>
+<dt><strong><code>epsg</code></strong> :&ensp;<code>str</code></dt>
+<dd>CRS system on which the polygon is constructed on</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>Returns bounds of the polygon provided(minx, miny, maxx, maxy)</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_polygon_edges(self, polygon: Polygon, epsg: str) -&gt; tuple:
+    &#34;&#34;&#34;To extract polygon bounds and assign polygon cropping bounds.
+
+    Parameters
+    ----------
+    polygon : Polygon
+        Polygon object describing the boundary of the location required
+    epsg : str
+        CRS system on which the polygon is constructed on
+
+    Returns
+    -------
+    tuple
+        Returns bounds of the polygon provided(minx, miny, maxx, maxy)
+    &#34;&#34;&#34;
+    try:
+        grid = gpd.GeoDataFrame([polygon], columns=[&#34;geometry&#34;])
+        grid.set_crs(epsg=epsg, inplace=True)
+
+        grid[&#39;geometry&#39;] = grid.geometry.to_crs(epsg=3857)
+
+        minx, miny, maxx, maxy = grid.geometry[0].bounds
+        # bounds: ([minx, maxx], [miny, maxy])
+        self.extraction_bounds = f&#34;({[minx, maxx]},{[miny,maxy]})&#34;
+
+        # Cropping Bounds
+        self.polygon_cropping = self.get_crop_polygon(grid.geometry[0])
+
+        grid[&#39;geometry&#39;] = grid.geometry.to_crs(epsg=epsg)
+        self.geo_df = grid
+
+        logger.info(
+            &#39;Successfully Extracted Polygon Edges and Polygon Cropping Bounds&#39;)
+
+        return minx, miny, maxx, maxy
+
+    except Exception as e:
+        logger.exception(
+            &#39;Failed to Extract Polygon Edges and Polygon Cropping Bounds&#39;)</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.get_region_by_bounds"><code class="name flex">
+<span>def <span class="ident">get_region_by_bounds</span></span>(<span>self, minx: float, miny: float, maxx: float, maxy: float, indx: int = 1) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Searchs for a region which satisfies the polygon defined from the available boundaries in the AWS
+dataset.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>minx</code></strong> :&ensp;<code>float</code></dt>
+<dd>Minimum longitude value of the polygon</dd>
+<dt><strong><code>miny</code></strong> :&ensp;<code>float</code></dt>
+<dd>Minimum latitude value of the polygon</dd>
+<dt><strong><code>maxx</code></strong> :&ensp;<code>float</code></dt>
+<dd>Maximum longitude value of the polygon</dd>
+<dt><strong><code>maxy</code></strong> :&ensp;<code>float</code></dt>
+<dd>Maximum latitude value of the polygon</dd>
+<dt><strong><code>indx</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>Bound indexing, to select the first or other access url's of multiple values for a region</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Access url to retrieve the data from the AWS dataset</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_region_by_bounds(self, minx: float, miny: float, maxx: float, maxy: float, indx: int = 1) -&gt; str:
+    &#34;&#34;&#34;Searchs for a region which satisfies the polygon defined from the available boundaries in the AWS 
+    dataset.
+
+    Parameters
+    ----------
+    minx : float
+        Minimum longitude value of the polygon
+    miny : float
+        Minimum latitude value of the polygon
+    maxx : float
+        Maximum longitude value of the polygon
+    maxy : float
+        Maximum latitude value of the polygon
+    indx : int, optional
+        Bound indexing, to select the first or other access url&#39;s of multiple values for a region
+    Returns
+    -------
+    str
+        Access url to retrieve the data from the AWS dataset
+    &#34;&#34;&#34;
+
+    aws_dataset_info_csv = pd.read_csv(&#39;./aws_dataset.csv&#39;)
+    for index, bound in enumerate(aws_dataset_info_csv[&#39;Bound/s&#39;].to_list()):
+        bound = bound.strip(&#39;][&#39;).replace(
+            &#39;]&#39;, &#39;&#39;).replace(&#39;[&#39;, &#39;&#39;).split(&#39;,&#39;)
+        bound = list(map(float, bound))
+
+        bminx, bminy, bmaxx, bmaxy = bound[0 * indx], bound[1 *
+                                                            indx], bound[3 * indx], bound[4 * indx]
+
+        if((minx &gt;= bminx and maxx &lt;= bmaxx) and (miny &gt;= bminy and maxy &lt;= bmaxy)):
+            access_url = aws_dataset_info_csv[&#39;Access Url/s&#39;].to_list()[
+                index][2:-2]
+
+            region = aws_dataset_info_csv[&#39;Region/s&#39;].to_list()[
+                index] + &#39;_&#39; + aws_dataset_info_csv[&#39;Year/s&#39;].to_list()[index][2:-2]
+
+            logger.info(f&#39;Region found in {region} folder&#39;)
+
+            return access_url
+    else:
+        logger.error(&#39;Region Not Available&#39;)
+        sys.exit()</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.get_scatter_plot"><code class="name flex">
+<span>def <span class="ident">get_scatter_plot</span></span>(<span>self, factor_value: int = 1, view_angle: Tuple[int, int] = (0, 0)) ‑> <module 'matplotlib.pyplot' from 'C:\\Users\\milky\\anaconda3\\envs\\env\\lib\\site-packages\\matplotlib\\pyplot.py'></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Constructs a scatter plot graph of the cloud points.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>factor_value</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>Factoring value if the data points are huge</dd>
+<dt><strong><code>view_angle</code></strong> :&ensp;<code>tuple(int, int)</code>, optional</dt>
+<dd>Values to change the view angle of the 3D projection</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>plt</code></dt>
+<dd>Returns a scatter plot grpah of the cloud points</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_scatter_plot(self, factor_value: int = 1, view_angle: Tuple[int, int] = (0, 0)) -&gt; plt:
+    &#34;&#34;&#34;Constructs a scatter plot graph of the cloud points.
+
+    Parameters
+    ----------
+    factor_value : int, optional
+        Factoring value if the data points are huge
+    view_angle : tuple(int, int), optional
+        Values to change the view angle of the 3D projection
+
+    Returns
+    -------
+    plt
+        Returns a scatter plot grpah of the cloud points
+    &#34;&#34;&#34;
+
+    values = self.cloud_points[::factor_value]
+
+    fig = plt.figure(figsize=(10, 15))
+
+    ax = plt.axes(projection=&#39;3d&#39;)
+
+    ax.scatter3D(values[:, 0], values[:, 1],
+                 values[:, 2], c=values[:, 2], s=0.1, cmap=&#39;terrain&#39;)
+
+    ax.set_xlabel(&#39;Longitude&#39;)
+    ax.set_ylabel(&#39;Latitude&#39;)
+    ax.set_zlabel(&#39;Elevation&#39;)
+
+    ax.set_title(&#39;Elevation Scatter Plot&#39;)
+
+    ax.view_init(view_angle[0], view_angle[1])
+
+    return plt</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.get_terrain_map"><code class="name flex">
+<span>def <span class="ident">get_terrain_map</span></span>(<span>self, markersize: int = 10, fig_size: Tuple[int, int] = (15, 20)) ‑> <module 'matplotlib.pyplot' from 'C:\\Users\\milky\\anaconda3\\envs\\env\\lib\\site-packages\\matplotlib\\pyplot.py'></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Constructs a Terrain Map from the cloud points.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>markersize</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>Marker size used when ploting the figure</dd>
+<dt><strong><code>fig_size</code></strong> :&ensp;<code>Tuple[int, int]</code>, optional</dt>
+<dd>Size of the figure to be returned</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>plt</code></dt>
+<dd>Returns a Terrain Map constructed from the cloud points</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_terrain_map(self, markersize: int = 10, fig_size: Tuple[int, int] = (15, 20)) -&gt; plt:
+    &#34;&#34;&#34;Constructs a Terrain Map from the cloud points.
+
+    Parameters
+    ----------
+    markersize : int, optional
+        Marker size used when ploting the figure
+    fig_size : Tuple[int, int], optional
+        Size of the figure to be returned
+
+    Returns
+    -------
+    plt
+        Returns a Terrain Map constructed from the cloud points
+    &#34;&#34;&#34;
+    self.get_elevation_geodf()
+
+    self.elevation_geodf.plot(c=&#39;elevation&#39;, scheme=&#34;quantiles&#34;, cmap=&#39;terrain&#39;, legend=True,
+                              markersize=markersize,
+                              figsize=(fig_size[0], fig_size[1]),
+                              missing_kwds={
+                                &#34;color&#34;: &#34;lightgrey&#34;,
+                                &#34;edgecolor&#34;: &#34;red&#34;,
+                                &#34;hatch&#34;: &#34;///&#34;,
+                                &#34;label&#34;: &#34;Missing values&#34;}
+                              )
+
+    plt.title(&#39;Terrain Elevation Map&#39;)
+    plt.xlabel(&#39;Longitude&#39;)
+    plt.ylabel(&#39;Latitude&#39;)
+
+    return plt</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.load_pipeline_template"><code class="name flex">
+<span>def <span class="ident">load_pipeline_template</span></span>(<span>self, file_name: str = './pipeline_template.json') ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads Pipeline Template to constructe Pdal Pipelines from.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>file_name</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Path plus file name of the pipeline template if the template is not located in its normal locations,
+or if another template file is needed to be loaded</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_pipeline_template(self, file_name: str = &#39;./pipeline_template.json&#39;) -&gt; None:
+    &#34;&#34;&#34;Loads Pipeline Template to constructe Pdal Pipelines from.
+
+    Parameters
+    ----------
+    file_name : str, optional
+        Path plus file name of the pipeline template if the template is not located in its normal locations,
+        or if another template file is needed to be loaded
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+    try:
+        with open(file_name, &#39;r&#39;) as read_file:
+            template = load(read_file)
+
+        self.template_pipeline = template
+
+        logger.info(&#39;Successfully Loaded Pdal Pipeline Template&#39;)
+
+    except Exception as e:
+        logger.exception(&#39;Failed to Load Pdal Pipeline Template&#39;)
+        sys.exit(1)</code></pre>
+</details>
+</dd>
+<dt id="data_fetcher.DataFetcher.save_cloud_points_for_3d"><code class="name flex">
+<span>def <span class="ident">save_cloud_points_for_3d</span></span>(<span>self, filename: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Save the variable to an ASCII file to open in a 3D Software.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>file_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>String of the path plus name to save the cloud point on to</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_cloud_points_for_3d(self, filename: str):
+    &#34;&#34;&#34;Save the variable to an ASCII file to open in a 3D Software.
+
+    Parameters
+    ----------
+    file_name : str
+        String of the path plus name to save the cloud point on to
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+    np.savetxt(filename + &#34;_cloud_points.xyz&#34;,
+               self.cloud_points, delimiter=&#34;;&#34;, fmt=&#34;%s&#34;)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="data_fetcher.DataFetcher" href="#data_fetcher.DataFetcher">DataFetcher</a></code></h4>
+<ul class="">
+<li><code><a title="data_fetcher.DataFetcher.apply_factor_sampling" href="#data_fetcher.DataFetcher.apply_factor_sampling">apply_factor_sampling</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.apply_grid_sampling" href="#data_fetcher.DataFetcher.apply_grid_sampling">apply_grid_sampling</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.check_region" href="#data_fetcher.DataFetcher.check_region">check_region</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.construct_pipeline_template_1" href="#data_fetcher.DataFetcher.construct_pipeline_template_1">construct_pipeline_template_1</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.construct_simple_pipeline" href="#data_fetcher.DataFetcher.construct_simple_pipeline">construct_simple_pipeline</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.create_cloud_points" href="#data_fetcher.DataFetcher.create_cloud_points">create_cloud_points</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.get_crop_polygon" href="#data_fetcher.DataFetcher.get_crop_polygon">get_crop_polygon</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.get_data" href="#data_fetcher.DataFetcher.get_data">get_data</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.get_elevation_geodf" href="#data_fetcher.DataFetcher.get_elevation_geodf">get_elevation_geodf</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.get_pipeline_arrays" href="#data_fetcher.DataFetcher.get_pipeline_arrays">get_pipeline_arrays</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.get_pipeline_log" href="#data_fetcher.DataFetcher.get_pipeline_log">get_pipeline_log</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.get_pipeline_metadata" href="#data_fetcher.DataFetcher.get_pipeline_metadata">get_pipeline_metadata</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.get_polygon_edges" href="#data_fetcher.DataFetcher.get_polygon_edges">get_polygon_edges</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.get_region_by_bounds" href="#data_fetcher.DataFetcher.get_region_by_bounds">get_region_by_bounds</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.get_scatter_plot" href="#data_fetcher.DataFetcher.get_scatter_plot">get_scatter_plot</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.get_terrain_map" href="#data_fetcher.DataFetcher.get_terrain_map">get_terrain_map</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.load_pipeline_template" href="#data_fetcher.DataFetcher.load_pipeline_template">load_pipeline_template</a></code></li>
+<li><code><a title="data_fetcher.DataFetcher.save_cloud_points_for_3d" href="#data_fetcher.DataFetcher.save_cloud_points_for_3d">save_cloud_points_for_3d</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -55,7 +55,8 @@
         "nodata": -9999,
         "output_type": "idw",
         "resolution": 1,
-        "type": "writers.gdal",
-        "window_size": 6
+        "window_size": 6,
+        "radius": 1,
+        "type": "writers.gdal"
     }
 }
