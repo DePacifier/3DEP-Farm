@@ -31,7 +31,7 @@ def get_info(url_str: str) -> tuple:
         # read data from response
         data_json = loads(response.read())
 
-        return_data = data_json['bounds'], data_json['points'], data_json["reprojection"], data_json['schema']
+        return_data = data_json['bounds'], data_json['points']
 
         logger.info(
             'Successfully Read and Retrieved Data Information from EPT.JSON File')
@@ -86,8 +86,6 @@ def construct_aws_dataset_json(directories_path: str = './filename.txt', save: b
                 new_file['bounds'] = [bound]
                 new_file['years'] = [year]
                 new_file['points'] = [points]
-                new_file['reprojection'] = [reprojection]
-                new_file['schema'] = [schema]
                 new_file['access_url'] = [folder_url]
                 new_file['len'] = 1
                 dataset_json[file_name] = new_file
@@ -97,8 +95,6 @@ def construct_aws_dataset_json(directories_path: str = './filename.txt', save: b
                 dict_value['bounds'].append(bound)
                 dict_value['years'].append(year)
                 dict_value['points'] = [points]
-                dict_value['reprojection'] = [reprojection]
-                dict_value['schema'] = [schema]
                 dict_value['access_url'].append(folder_url)
                 dict_value['len'] = dict_value['len'] + 1
 
@@ -139,22 +135,18 @@ def get_values_list(json_data: dict) -> tuple:
         file_names = list(json_data.keys())
         bounds_list = []
         points_list = []
-        reprojection_list = []
-        schema_list = []
         years_list = []
         access_list = []
         len_list = []
         for value in json_data.values():
             bounds_list.append(value['bounds'])
             points_list.append(value['points'])
-            reprojection_list.append(value['reprojection'])
-            schema_list.append(value['schema'])
             years_list.append(value['years'])
             access_list.append(value['access_url'])
             len_list.append(value['len'])
 
         return_value = (file_names, bounds_list, points_list,
-                        reprojection_list, schema_list, years_list, access_list, len_list)
+                        years_list, access_list, len_list)
 
         logger.info('Successfully Retrieved Value Lists')
 
@@ -243,15 +235,13 @@ def fix_bound_reptition_and_build_csv(json_data: dict, save: bool = True) -> pd.
 
     final_json = merge_similar_bounds(json_data, file_names, bounds_list)
 
-    file_names, bounds_list, points_list, reprojection_list, schema_list, years_list, access_list, len_list = get_values_list(
+    file_names, bounds_list, points_list, years_list, access_list, len_list = get_values_list(
         final_json)
 
     aws_dataset_df = pd.DataFrame()
     aws_dataset_df['Region/s'] = file_names
     aws_dataset_df['Bound/s'] = bounds_list
     aws_dataset_df['NumberOfPoints'] = points_list
-    aws_dataset_df['Reprojection'] = reprojection_list
-    aws_dataset_df['Schema'] = schema_list
     aws_dataset_df['Year/s'] = years_list
     aws_dataset_df['Access Url/s'] = access_list
     aws_dataset_df['Variations'] = len_list

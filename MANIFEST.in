@@ -1,0 +1,4 @@
+include 3DEP-Farm/aws_dataset.csv
+include 3DEP-Farm/aws_dataset.json
+include 3DEP-Farm/filename.txt
+include 3DEP-Farm/pipeline_template.json_data
